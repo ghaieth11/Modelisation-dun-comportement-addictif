@@ -18,7 +18,7 @@ class Systeme2P : public Systeme {
 
     Systeme2P(Personne& person1, Personne& person2); // constructeur par copie
     void SolveSystem() override ;
-    void UpdateValues(int t) override;
+    
 
 
 
