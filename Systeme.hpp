@@ -13,7 +13,7 @@ private :
 
 
     public : 
-    virtual void SolveSystem() = 0;
+    virtual void SolveSystem(int n) = 0;
     virtual void UpdateValues(int t) = 0;
 
 
@@ -22,10 +22,10 @@ private :
 
 };
 
-
-
-
-
-
-
 #endif
+
+
+
+
+
+

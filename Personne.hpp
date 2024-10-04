@@ -17,6 +17,9 @@ class Personne {
     Personne(float C0, float S0, float E0, float Sm, float p, float d, float q);  // constructeur spécifique
     
     void Initialisation(); // une méthode pour initialiser et/ou allouer dynamiquement les tableau C S E ...
+    float getd();
+    float getp();
+    float getq();
     std::vector<float>& getC();
     std::vector<float>& getE();
     std::vector<float>& getS();
