@@ -10,7 +10,7 @@ add_executable(my_target
     Personne.cpp 
     Systeme1P.cpp 
     Systeme2P.cpp 
-    Graphique.cpp
+
 )
 
 # Lier Matplot++ à l'exécutable

@@ -8,7 +8,7 @@ Graphique::Graphique() {
     // Initialisation si besoin
 }
 
-void Graphique::ajouterCourbe(const std::vector<double>& x, const std::vector<double>& y, const std::string& label, const std::string& couleur) {
+void Graphique::ajouterCourbe(const std::vector<float>& x, const std::vector<float>& y, const std::string& label, const std::string& couleur) {
     dataX.push_back(x);
     dataY.push_back(y);
     labels.push_back(label);
@@ -17,7 +17,7 @@ void Graphique::ajouterCourbe(const std::vector<double>& x, const std::vector<do
 
 void Graphique::afficher() {
     using namespace matplot;
-    
+
     hold(on); // Garder les tracés superposés
 
     for (size_t i = 0; i < dataX.size(); ++i) {

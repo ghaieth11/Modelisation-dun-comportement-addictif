@@ -10,7 +10,7 @@ class Systeme1P : public Systeme {
 
     public : 
     
-    Systeme1P(const Personne& person); // constructeur par copie
+    Systeme1P(Personne& person); // constructeur par copie
 
     void SolveSystem() override ;
 

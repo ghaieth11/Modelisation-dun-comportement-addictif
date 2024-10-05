@@ -30,11 +30,18 @@ Personne::Personne(float C0, float S0, float E0, float Sm, float p, float d, flo
 // Méthode pour initialiser les tableaux
 void Personne::Initialisation(){
     // Initialiser les valeurs de C, S, et E avec les valeurs initiales
+    C.resize(2);
+    S.resize(2);
+    E.resize(2);
+    V.resize(2);
+    A.resize(2);
+    Psi.resize(2);
+    
     C[0] = C0;
     S[0] = S0;
     E[0] = E0;
     Psi[0] = C0 - S0 - E0;
-    V[0] = std::min(1,std::max(Psi[0],0));
+    V[0] = std::min(1.0f,std::max(Psi[0],0.0f));
     // Création d'un générateur de nombres aléatoires
     std::random_device rd; // Pour obtenir une graine
     std::mt19937 gen(rd()); // Mersenne Twister

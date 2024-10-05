@@ -13,7 +13,15 @@ protected :
 
 
     public : 
-    Systeme(int n){nbrsemaines = n};
+    Systeme(){
+    me=0.01;
+    m_lambda=0.001;
+    Rm=7;
+    nbrsemaines = 400;
+    lambda.resize(nbrsemaines);
+    for (int i = 0; i < nbrsemaines; i++){
+        lambda[i] = 0.2 + i * m_lambda;
+    }};
     virtual void SolveSystem() = 0;
     
 

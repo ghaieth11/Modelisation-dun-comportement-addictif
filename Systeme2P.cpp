@@ -7,25 +7,15 @@
 
 // Constructeur du système à deux personnes
 Systeme2P::Systeme2P(Personne &person1, Personne &person2)
-    : P1(person1), P2(person2) // Liste d'initialisation pour les références
+    : P1(person1), P2(person2), Systeme() // Liste d'initialisation pour les références
 {
     alpha = 0.1;
     beta = 0.1;
     gamma = 0.1;
     
-    me = 0.01;
-    m_lambda = 0.001;
-    Rm = 7;
-
-    // Initialisation du tableau lambda pour nbrsemaines
-    lambda.reserve(nbrsemaines);
-    for (int i = 0; i < nbrsemaines; i++) {
-        lambda[i] = 0.2 + i * m_lambda;
-    }
-
     // Réservation des vecteurs p1 et p2
-    p1.reserve(nbrsemaines);
-    p2.reserve(nbrsemaines);
+    p1.resize(nbrsemaines);
+    p2.resize(nbrsemaines);
 
     // Calcul des probabilités pour p1 et p2 (liées aux personnes P1 et P2)
     for (int i = 0; i < nbrsemaines; i++) {
@@ -55,19 +45,19 @@ void Systeme2P::SolveSystem() {
     float b2 = 2 * d2 / q2;
 
     // Réserver de la mémoire pour les vecteurs de P1 et P2
-    P1.getA().reserve(nbrsemaines);
-    P1.getC().reserve(nbrsemaines);
-    P1.getE().reserve(nbrsemaines);
-    P1.getS().reserve(nbrsemaines);
-    P1.getV().reserve(nbrsemaines);
-    P1.getPsi().reserve(nbrsemaines);
+    P1.getA().resize(nbrsemaines);
+    P1.getC().resize(nbrsemaines);
+    P1.getE().resize(nbrsemaines);
+    P1.getS().resize(nbrsemaines);
+    P1.getV().resize(nbrsemaines);
+    P1.getPsi().resize(nbrsemaines);
 
-    P2.getA().reserve(nbrsemaines);
-    P2.getC().reserve(nbrsemaines);
-    P2.getE().reserve(nbrsemaines);
-    P2.getS().reserve(nbrsemaines);
-    P2.getV().reserve(nbrsemaines);
-    P2.getPsi().reserve(nbrsemaines);
+    P2.getA().resize(nbrsemaines);
+    P2.getC().resize(nbrsemaines);
+    P2.getE().resize(nbrsemaines);
+    P2.getS().resize(nbrsemaines);
+    P2.getV().resize(nbrsemaines);
+    P2.getPsi().resize(nbrsemaines);
 
     // Création d'un générateur de nombres aléatoires pour générer des événements Poisson
     std::random_device rd;

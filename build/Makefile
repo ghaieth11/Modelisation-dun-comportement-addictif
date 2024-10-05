@@ -129,30 +129,6 @@ my_target/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_target.dir/build.make CMakeFiles/my_target.dir/build
 .PHONY : my_target/fast
 
-Graphique.o: Graphique.cpp.o
-.PHONY : Graphique.o
-
-# target to build an object file
-Graphique.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_target.dir/build.make CMakeFiles/my_target.dir/Graphique.cpp.o
-.PHONY : Graphique.cpp.o
-
-Graphique.i: Graphique.cpp.i
-.PHONY : Graphique.i
-
-# target to preprocess a source file
-Graphique.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_target.dir/build.make CMakeFiles/my_target.dir/Graphique.cpp.i
-.PHONY : Graphique.cpp.i
-
-Graphique.s: Graphique.cpp.s
-.PHONY : Graphique.s
-
-# target to generate assembly for a file
-Graphique.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_target.dir/build.make CMakeFiles/my_target.dir/Graphique.cpp.s
-.PHONY : Graphique.cpp.s
-
 Personne.o: Personne.cpp.o
 .PHONY : Personne.o
 
@@ -258,9 +234,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... my_target"
-	@echo "... Graphique.o"
-	@echo "... Graphique.i"
-	@echo "... Graphique.s"
 	@echo "... Personne.o"
 	@echo "... Personne.i"
 	@echo "... Personne.s"
