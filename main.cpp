@@ -4,13 +4,10 @@
 #include "Personne.hpp"
 #include "Systeme1P.hpp"
 #include "Systeme2P.hpp"
+#include "Graphique.hpp"
 
-
-
-int main(){
-
-
-// Créer une instance de Personne
+int main() {
+    // Créer une instance de Personne
     Personne P1(0, 0, 0, 0.5, 0.3, 0.2, 0.8);
     Personne P2(0, 0, 0, 0.5, 0.3, 0.2, 0.8);
 
@@ -18,36 +15,33 @@ int main(){
     Systeme1P systeme1(P1);
     Systeme2P systeme2(P1, P2);
 
-    // Simuler pour un nombre de semaines
-    int nbrSemaines = 10;
-    for (int t = 0; t < nbrSemaines; ++t) {
-        systeme1.UpdateValues(t);
-        systeme2.UpdateValues(t);
+    // Résoudre les systèmes
+    systeme1.SolveSystem();
+    systeme2.SolveSystem();
+
+    // Création du graphique
+    Graphique graphique;
+
+    // Créer un vecteur pour l'axe des semaines
+    std::vector<double> semaines(nbrSemaines);
+    for (size_t i = 0; i < semaines.size(); ++i) {
+        semaines[i] = static_cast<double>(i);
     }
-    // Création d'un vecteur pour l'axe des semaines
-    std::vector<double> semaine(nbrSemaines);
-    for (size_t i = 0; i < semaine.size(); ++i) {
-        semaine[i] = static_cast<double>(i);
-    }
-    hold(on);
-    // Tracé des résultats
-    plot(weeks, P1.getC(), "r-")->display_name("Intensité de la fringale (C)");
-    plot(weeks, P1.getS(), "b-")->display_name("Intensité du self-contrôle (S)");
-    plot(weeks, P1.getE(), "g-")->display_name("Influence sociétale (E)");
-    plot(weeks, P1.getV(), "m-")->display_name("Niveau de vulnérabilité (V)");
-    plot(weeks, P1.getA(), "c-")->display_name("Addiction exercée (A)");
 
-    // Définir les limites de l'axe des ordonnées si nécessaire
-    ylim({0, 1});
+    // Ajouter des courbes pour le premier système (P1)
+    graphique.ajouterCourbe(semaines, P1.getC(), "Intensité de la fringale (C)", "r-");
+    graphique.ajouterCourbe(semaines, P1.getS(), "Intensité du self-contrôle (S)", "b-");
+    graphique.ajouterCourbe(semaines, P1.getE(), "Influence sociétale (E)", "g-");
+    graphique.ajouterCourbe(semaines, P1.getV(), "Niveau de vulnérabilité (V)", "m-");
+    graphique.ajouterCourbe(semaines, P1.getA(), "Addiction exercée (A)", "c-");
 
-    // Ajout des étiquettes des axes et du titre
-    xlabel("Temps (semaines)");
-    ylabel("Intensité/Niveau");
-    title("Évolution des variables du modèle d’addiction au fil du temps");
-
+    // Ajouter des courbes pour le deuxième système (P2) si besoin
+    // Exemple d'ajout de courbes pour P2 (similaire à P1)
+    graphique.ajouterCourbe(semaines, P2.getC(), "Intensité de la fringale P2 (C)", "r--");
+    graphique.ajouterCourbe(semaines, P2.getS(), "Intensité du self-contrôle P2 (S)", "b--");
 
     // Afficher le graphique
-    show();
-    hold(off);
+    graphique.afficher();
+
     return 0;
 }

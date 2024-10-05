@@ -4,7 +4,7 @@
 #include <vector>
 
 class Systeme {
-private :
+protected :
     // des parametres qui caractérise chaque systéme d'equations
     float me, m_lambda, Rm;
     int nbrsemaines;
@@ -13,8 +13,9 @@ private :
 
 
     public : 
-    virtual void SolveSystem(int n) = 0;
-    virtual void UpdateValues(int t) = 0;
+    Systeme(int n){nbrsemaines = n};
+    virtual void SolveSystem() = 0;
+    
 
 
 
