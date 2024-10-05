@@ -6,14 +6,13 @@
 
 class Systeme1P : public Systeme {
     private :
-    const Personne& P;
+    Personne& P;
 
     public : 
     
-    Systeme1P(const Personne& person,int i); // constructeur par copie
+    Systeme1P(const Personne& person); // constructeur par copie
 
-    void SolveSystem(int n) override ;
-    // void UpdateValues(int t) override;
+    void SolveSystem() override ;
 
 
 

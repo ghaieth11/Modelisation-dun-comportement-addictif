@@ -20,11 +20,13 @@ class Personne {
     float getd();
     float getp();
     float getq();
+    float getSm();
     std::vector<float>& getC();
     std::vector<float>& getE();
     std::vector<float>& getS();
     std::vector<float>& getV();
     std::vector<float>& getA();
+    std::vector<float>& getPsi();
     
 
     
