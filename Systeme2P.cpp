@@ -17,11 +17,6 @@ Systeme2P::Systeme2P(Personne &person1, Personne &person2)
     p1.resize(nbrsemaines);
     p2.resize(nbrsemaines);
 
-    // Calcul des probabilités pour p1 et p2 (liées aux personnes P1 et P2)
-    for (int i = 0; i < nbrsemaines; i++) {
-        p1[i] = P1.getp() + beta * exp(-gamma * P1.getA()[i]);
-        p2[i] = P2.getp() + beta * exp(-gamma * P2.getA()[i]);
-    }
 }
 
 // Méthode de résolution du système pour deux personnes
@@ -83,8 +78,8 @@ void Systeme2P::SolveSystem() {
         int nb_alea1 = poisson_dist(gen);
         int nb_alea2 = poisson_dist(gen);
 
-        P1.getA()[t + 1] = P1.getV()[t + 1] + nb_alea1 * q1 * (1 - P1.getV()[t + 1]);
-        P2.getA()[t + 1] = P2.getV()[t + 1] + nb_alea2 * q2 * (1 - P2.getV()[t + 1]);
+        P1.getA()[t + 1] = P1.getV()[t + 1] + nb_alea1 * q1 * (1 - P1.getV()[t + 1])/Rm;
+        P2.getA()[t + 1] = P2.getV()[t + 1] + nb_alea2 * q2 * (1 - P2.getV()[t + 1])/Rm;
 
         // Mise à jour de Psi(t+1) pour P1 et P2
         P1.getPsi()[t + 1] = P1.getC()[t + 1] - P1.getS()[t + 1] - P1.getE()[t + 1];
@@ -93,5 +88,18 @@ void Systeme2P::SolveSystem() {
         // Mise à jour de V(t+1) pour P1 et P2 (borné entre 0 et 1)
         P1.getV()[t + 1] = std::min(1.0f, std::max(0.0f, P1.getPsi()[t + 1]));
         P2.getV()[t + 1] = std::min(1.0f, std::max(0.0f, P2.getPsi()[t + 1]));
+
+        p1[t] = P1.getp() + beta * exp(-gamma * P1.getA()[t]);
+        p2[t] = P2.getp() + beta * exp(-gamma * P2.getA()[t]);
     }
+    p1[nbrsemaines-1] = P1.getp() + beta * exp(-gamma * P1.getA()[nbrsemaines-1]);
+    p2[nbrsemaines-1] = P2.getp() + beta * exp(-gamma * P2.getA()[nbrsemaines-1]);
+}
+
+std::vector<float>& Systeme2P::getp1() {
+    return p1;
+}
+
+std::vector<float>& Systeme2P::getp2() {
+    return p2;
 }

@@ -36,7 +36,7 @@ void Systeme1P::SolveSystem(){
         P.getC()[i+1] = (1 - d)*P.getC()[i] + b * std::min(1.0f,1 - P.getC()[i])* P.getA()[i];
         P.getS()[i+1] = P.getS()[i] + p * std::max(0.0f,Sm - P.getS()[i]) - h * P.getC()[i] - k * P.getA()[i];
         P.getE()[i+1] = P.getE()[i] - me;
-        P.getA()[i + 1] = P.getV()[i + 1] + nb_alea * q * (1 - P.getV()[i + 1]);
+        P.getA()[i + 1] = P.getV()[i + 1] + nb_alea * q * (1 - P.getV()[i + 1])/Rm;//Rmax=7
         P.getPsi()[i+1] = P.getC()[i + 1] - P.getS()[i + 1] - P.getE()[i + 1];
         P.getV()[i + 1] = std::min(0.0f, std::max(P.getPsi()[i + 1], 1.0f));
 

@@ -92,3 +92,50 @@ std::vector<float>& Personne::getPsi() {
     return Psi;
 }
 
+void Personne::Addict(){   
+    C0=0.8; //Désir initial fort
+    S0=0.1; //Peu de self contrôle 
+    E0=0; //Pas d'influence sociétale
+    Sm=S0;
+    p=0.5;
+    d=0.2;
+    q=0.8;
+}
+
+void Personne::Insensible(){
+    C0=0.1; //Désir initial faible
+    S0=0.8; //Beaucoup de self contrôle 
+    E0=0; //Pas d'influence sociétale
+    Sm=S0;
+    p=0.5;
+    d=0.2;
+    q=0.8;
+}
+
+void Personne::setC0(float value) {
+    C0 = value;
+}
+
+void Personne::setS0(float value) {
+    S0 = value;
+}
+
+void Personne::setE0(float value) {
+    E0 = value;
+}
+
+void Personne::setSm(float value) {
+    Sm = value;
+}
+
+void Personne::setp(float value) {
+    p = value;
+}
+
+void Personne::setd(float value) {
+    d = value;
+}
+
+void Personne::setq(float value) {
+    q = value;
+}
