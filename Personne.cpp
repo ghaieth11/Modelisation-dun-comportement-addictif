@@ -2,7 +2,7 @@
 #include <random>
 
 // Constructeur par défaut
-Personne::Personne() : C0(0), S0(0), E0(0), Sm(0), p(0), d(0), q(0) {}
+Personne::Personne() : C0(0), S0(0), E0(0), Sm(0), p(0), d(0), q(0) {Initialisation();}
 
 // Constructeur par copie
 Personne::Personne(const Personne& P) {
@@ -100,6 +100,7 @@ void Personne::Addict(){
     p=0.5;
     d=0.2;
     q=0.8;
+    Initialisation();
 }
 
 void Personne::Insensible(){

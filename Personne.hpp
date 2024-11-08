@@ -8,15 +8,14 @@ private:
     float C0, S0, E0, Sm, p, d, q;
     std::vector<float> C, S, E, V, A, Psi;
 
-    // Méthodes de la classe Personne
+    // Méthode pour initialiser et/ou allouer dynamiquement les tableaux C, S, E, etc.
+    void Initialisation(); 
 public: 
     // Constructeurs
     Personne(); // Constructeur par défaut
     Personne(const Personne& P); // Constructeur par copie
     Personne(float C0, float S0, float E0, float Sm, float p, float d, float q);  // Constructeur spécifique
     
-    // Méthode pour initialiser et/ou allouer dynamiquement les tableaux C, S, E, etc.
-    void Initialisation(); 
 
     // Getters
     float getC0();
