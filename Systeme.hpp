@@ -15,9 +15,9 @@ protected :
     public : 
     Systeme(){
     me=0.01;
-    m_lambda=0.001;
+    m_lambda=0.00;
     Rm=7;
-    nbrsemaines = 400;
+    nbrsemaines = 300;
     lambda.resize(nbrsemaines);
     for (int i = 0; i < nbrsemaines; i++){
         lambda[i] = 0.2 + i * m_lambda;

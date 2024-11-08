@@ -16,7 +16,7 @@ void Systeme1P::SolveSystem(){
     float h = p * Sm; 
     float k = h / q; 
     float b = 2 * d / q;
-
+    
     // réserver de la mémoire pour chaque vecteur 
     P.getA().resize(nbrsemaines);
     P.getC().resize(nbrsemaines);
@@ -38,7 +38,7 @@ void Systeme1P::SolveSystem(){
         P.getE()[i+1] = P.getE()[i] - me;
         P.getA()[i + 1] = P.getV()[i + 1] + nb_alea * q * (1 - P.getV()[i + 1])/Rm;//Rmax=7
         P.getPsi()[i+1] = P.getC()[i + 1] - P.getS()[i + 1] - P.getE()[i + 1];
-        P.getV()[i + 1] = std::min(0.0f, std::max(P.getPsi()[i + 1], 1.0f));
+        P.getV()[i + 1] = std::max(0.0f, std::min(P.getPsi()[i + 1], 1.0f));
 
     }
 }
