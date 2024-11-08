@@ -11,8 +11,11 @@ class Systeme1P : public Systeme {
     public : 
     
     Systeme1P(Personne& person); // constructeur par copie
-
+    ~Systeme1P();
+    
     void SolveSystem() override ;
+
+    
 
 
 

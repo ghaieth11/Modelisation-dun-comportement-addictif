@@ -17,6 +17,7 @@ class Systeme2P : public Systeme {
     public : 
 
     Systeme2P(Personne& person1, Personne& person2); // constructeur spécifique
+    ~Systeme2P();
     void SolveSystem() override ;
     std::vector<float>& getp1();
     std::vector<float>& getp2();
