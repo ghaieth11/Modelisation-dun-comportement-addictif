@@ -37,7 +37,7 @@ public:
 
     // Autres méthodes
     void Addict();
-    void Insensible();
+    void Ordinaire();
     
     // Getters pour accéder aux tableaux
     std::vector<float>& getC();

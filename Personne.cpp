@@ -103,7 +103,7 @@ void Personne::Addict(){
     Initialisation();
 }
 
-void Personne::Insensible(){
+void Personne::Ordinaire(){
     C0=0.1; //Désir initial faible
     S0=0.8; //Beaucoup de self contrôle 
     E0=0; //Pas d'influence sociétale
